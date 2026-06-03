@@ -67,10 +67,10 @@ const cars = {
     mclaren: { name: "McLaren P1", img: "https://i.ibb.co/jPkwRqt7/Chat-GPT-Image-May-30-2026-01-18-15-PM.png" },
     pagani: { name: "Pagani Huayra", img: "https://i.ibb.co/5WK5QCYy/Chat-GPT-Image-May-30-2026-01-18-08-PM.png" },
     charger: { name: "Dodge Charger", img: "https://i.ibb.co/Q3qwS8Mz/Chat-GPT-Image-May-30-2026-01-18-02-PM.png" },
-    landcruiser: { name: "Toyota Land Cruiser", img: "https://i.ibb.co/35yK76my/Chat-GPT-Image-Jun-2-2026-12-23-40-PM.png" },
-    cullinan: { name: "Rolls-Royce Cullinan Black Badge", img: "https://i.ibb.co/fdXyX9Yn/Chat-GPT-Image-Jun-2-2026-12-20-56-PM.png" },
-    lykan: { name: "Lykan HyperSport", img: "https://i.ibb.co/vCH1mcW9/de41aa6a-e368-4e72-a963-7bfc524afea8.png" },
-    raptor: { name: "Ford Raptor", img: "https://i.ibb.co/WWxPDh1T/80f24df6-0002-4397-ba5a-728e51b68214.png" }
+    landcruiser: { name: "Ford Raptor", img: "https://i.ibb.co/35yK76my/Chat-GPT-Image-Jun-2-2026-12-23-40-PM.png" },
+    cullinan: { name: "Lykan HyperSport", img: "https://i.ibb.co/fdXyX9Yn/Chat-GPT-Image-Jun-2-2026-12-20-56-PM.png" },
+    lykan: { name: "Rolls-Royce Cullinan Black Badge", img: "https://i.ibb.co/vCH1mcW9/de41aa6a-e368-4e72-a963-7bfc524afea8.png" },
+    raptor: { name: "Toyota Land Cruiser", img: "https://i.ibb.co/WWxPDh1T/80f24df6-0002-4397-ba5a-728e51b68214.png" }
 };
 
 const grid = document.getElementById("carGrid");
