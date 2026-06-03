@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity Garage</title>
+    <meta name="description" content="Build, gift and collect legendary digital car garages">
+
+    <link rel="icon" type="image/png" href="https://i.ibb.co/DgtfrHTJ/Chat-GPT-Image-May-30-2026-10-16-14-AM.png">
+    <meta property="og:title" content="Velocity Garage">
+    <meta property="og:description" content="Build, gift and collect legendary digital car garages">
+    <meta property="og:image" content="https://i.ibb.co/DgtfrHTJ/Chat-GPT-Image-May-30-2026-10-16-14-AM.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velocity-garage.netlify.app/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://i.ibb.co/DgtfrHTJ/Chat-GPT-Image-May-30-2026-10-16-14-AM.png">
+    <meta name="theme-color" content="#ff5e00">
+
+    <link rel="preconnect" href="https://i.ibb.co">
+    <link rel="dns-prefetch" href="https://i.ibb.co">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- THEME SWITCHER -->
+  <div class="theme-switch-wrapper">
+        <label class="cyber-switch" for="themeToggle">
+            <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
+            <div class="cyber-slider">
+                <div class="knob"></div>
+                <div class="track-text left">BLUE</div>
+                <div class="track-text right">DARK</div>
+            </div>
+        </label>
+    </div>
+
+    <section class="start-screen" id="startScreen">
+        <div class="start-content">
+            <h1>VELOCITY GARAGE</h1>
+            <p>Build • Gift • Collect 🏎️</p>
+            <div class="start-buttons">
+                <button class="start-btn" onclick="openBuilder()">START BUILDING</button>
+                <button class="start-btn" onclick="openMyGarage()">MY GARAGE</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="builder" id="builder">
+        <div class="left-panel">
+            <h1>BUILD YOUR GARAGE</h1>
+            
+            <label>Friend Name</label>
+            <input type="text" id="friendName" placeholder="Aryan" oninput="updatePreview()">
+            
+            <label>Your Name</label>
+            <input type="text" id="senderName" placeholder="Manas" oninput="updatePreview()">
+            
+            <label>Gift Message</label>
+            <textarea id="giftMessage" placeholder="Every legend deserves a legendary ride." oninput="updatePreview()"></textarea>
+            
+            <label>Choose Cars</label>
+            <div class="car-grid" id="carGrid"></div>
+            
+            <button class="generate-btn" onclick="generateLink()">GENERATE GIFT LINK</button>
+            <div id="giftLink"></div>
+            
+            <button class="open-btn" onclick="backHome()">BACK</button>
+        </div>
+
+        <div class="preview">
+            <div class="preview-card">
+                <div class="card-top">
+                    <div class="logo">HOTWHEELS</div>
+                    <div class="preview-cars" id="previewCars"></div>
+                </div>
+                <div class="card-bottom">
+                    <h2 id="previewFriend">FOR ARYAN</h2>
+                    <p id="previewMessage">Every legend deserves a legendary ride.</p>
+                    <h3 id="previewSender">Gifted By Manas 💝</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wrap-screen" id="wrapScreen">
+        <div class="gift-box">
+            <div class="ribbon-v"></div>
+            <div class="ribbon-h"></div>
+            <div class="bow"></div>
+        </div>
+        <h1 id="giftTitle">A GIFT FOR YOU</h1>
+        <button class="open-btn" onclick="openGift()">OPEN YOUR GARAGE</button>
+    </section>
+
+    <section class="gift-display" id="giftDisplay">
+        <div class="preview-card">
+            <div class="card-top">
+                <div class="logo">HOTWHEELS</div>
+                <div class="preview-cars" id="giftCars"></div>
+            </div>
+            <div class="card-bottom">
+                <h2 id="giftFriend">ARYAN'S GARAGE</h2>
+                <p id="giftMessageText">Every legend deserves a legendary ride.</p>
+                <h3 id="giftSender">Gifted By Manas 💝</h3>
+                <button class="open-btn" onclick="saveGarage()">ADD TO MY GARAGE</button>
+                <button class="open-btn" onclick="backHome()">BACK</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="gift-display" id="myGarageScreen">
+        <div class="preview-card">
+            <div class="card-top">
+                <div class="logo">MY GARAGE</div>
+                <div class="preview-cars" id="savedGarageCars"></div>
+            </div>
+            <div class="card-bottom">
+                <h2>YOUR COLLECTION</h2>
+                <p id="garageCount">0 Cars Collected</p>
+                <button class="open-btn" onclick="openMysteryBox()">🎁 OPEN MYSTERY BOX</button>
+                <button class="open-btn" onclick="backHome()">BACK</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="spin-wheel-screen" id="spinWheelScreen">
+        <div class="wheel-container">
+            <div class="wheel-pointer">▼</div>
+            <div class="wheel" id="wheel"></div>
+        </div>
+        <button class="open-btn spin-btn" id="spinBtn" onclick="spinWheel()">SPIN TO UNLOCK</button>
+    </section>
+
+    <section class="mystery-reward-screen" id="mysteryRewardScreen">
+        <div class="mystery-reward-card">
+            <div class="mystery-reward-top">
+                <h1>🎉 UNLOCKED!</h1>
+                <div class="mystery-car-image" id="mysteryCar"></div>
+            </div>
+            <div class="mystery-reward-bottom">
+                <h2 id="mysteryCarName">CAR NAME</h2>
+                <p>Added to Your Garage!</p>
+                <div class="mystery-button-group">
+                    <button class="open-btn" onclick="backToGarage()">BACK TO GARAGE</button>
+                    <button class="open-btn" onclick="backHome()">HOME</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-brand">
+        <div class="sapre-logo">⚡ SAPRE INDUSTRIES</div>
+        
+        <!-- INSTAGRAM LINK -->
+        <a href="https://www.instagram.com/velocity_garage14/" target="_blank" class="insta-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" class="insta-icon">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+        </a>
+
+        <div class="netlify-powered">Powered by Dhanesh Padkar</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
